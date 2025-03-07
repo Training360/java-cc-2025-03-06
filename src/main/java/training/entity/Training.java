@@ -19,7 +19,7 @@ public class Training {
 
     private final Set<Long> enrollments = new HashSet<>();
 
-    public Training(String name, TrainingType trainingType) {
+    Training(String name, TrainingType trainingType) {
         this.name = name;
         this.trainingType = trainingType;
     }
