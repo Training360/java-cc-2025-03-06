@@ -19,9 +19,9 @@ public class TrainingService {
         return new TrainingDto(training.getId(), name, training.getTrainingType());
     }
 
-    public TrainingDto enroll(long trainingId, Set<Long> employeeIds) {
+    public TrainingDto enroll(long trainingId, Set<Long> participantIds) {
         Training training = trainingRepository.findById(trainingId);
-        training.enroll(employeeIds);
+        training.enroll(participantIds);
         return new TrainingDto(training.getId(), training.getName(), training.getTrainingType());
     }
 }
