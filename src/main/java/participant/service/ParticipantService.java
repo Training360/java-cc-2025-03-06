@@ -12,7 +12,7 @@ public class ParticipantService {
     private final ParticipantRepository participantRepository;
 
     public ParticipantDto register(String name, Newsletter newsletter) {
-        Participant participant = Participant.create(name, newsletter);
+        Participant participant = Participant.register(name, newsletter);
         participantRepository.save(participant);
         return new ParticipantDto(participant.getId(), participant.getName(), participant.getNewsletter());
     }

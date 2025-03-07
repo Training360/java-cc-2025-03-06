@@ -19,7 +19,7 @@ public class Participant {
         this.newsletter = newsletter;
     }
 
-    public static Participant create(String name, Newsletter newsletter) {
+    public static Participant register(String name, Newsletter newsletter) {
         return new Participant(name, newsletter);
     }
 }
