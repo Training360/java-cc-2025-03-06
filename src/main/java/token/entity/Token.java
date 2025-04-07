@@ -1,6 +1,5 @@
 package token.entity;
 
-// TODO: import *
 import lombok.Getter;
 import token.*;
 
@@ -16,32 +15,27 @@ public class Token {
     Token(Enrollment enrollment, TokenLimit tokenLimit) {
         this.enrollment = enrollment;
         this.tokenLimit = tokenLimit;
-        this.used = used;
     }
 
     public static Token assign(Enrollment enrollment, TokenLimit tokenLimit) {
         return new Token(enrollment, tokenLimit);
     }
 
-    public TokenUsage use(int amount) {
-        switch (tokenLimit) {
-            // TODO Unused variable
-            case UnlimitedTokens token: {
-                used += amount;
-                return new UnlimitedTokenUsage(used);
+    public TokenUsage use(int amountToUse) {
+        return switch (tokenLimit) {
+            case UnlimitedTokens _ -> {
+                used += amountToUse;
+                yield new UnlimitedTokenUsage(used);
             }
-            case LimitedTokens token: {
-                if (token.amount() < used + amount) {
-                    // TODO Exception best practices
-                    throw new IllegalStateException("token limit exceeded");
+            case LimitedTokens(var tokenAmount) -> {
+                if (tokenAmount < used + amountToUse) {
+                    throw new IllegalStateException("Token limit exceeded for enrollment %s: %d < %d + %d"
+                            .formatted(enrollment, tokenAmount, used, amountToUse));
                 }
-                used += amount;
-                return new LimitedTokenUsage(used, token.amount(), token.amount() - used);
+                used += amountToUse;
+                int free = tokenAmount - used;
+                yield new LimitedTokenUsage(used, tokenAmount, free);
             }
-            // TODO: forduljon le
-            default: {
-                throw new IllegalStateException("unknown type");
-            }
-        }
+        };
     }
 }

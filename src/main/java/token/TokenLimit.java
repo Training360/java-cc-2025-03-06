@@ -1,4 +1,4 @@
 package token;
 
-public interface TokenLimit {
+public sealed interface TokenLimit permits LimitedTokens, UnlimitedTokens {
 }
