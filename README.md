@@ -80,6 +80,16 @@ Architecture decision records:
 * Ugyanez a kérdés a visszatérési értéknél is. Ugyanez a megoldás, `TokenUsage` interfész,
   `LimitedTokenUsage`, `UnlimitedTokensUsage` implementációkkal.
 * `Token` Aggregate-ben implementáció switch használatával
+* Kerüljük a szintetikus nevek használatát. Törekedjünk a Ubiquitous Language használatára (üzlet által is használt 
+  fogalmak), valamint a keretrendszer által bevezetett fogalmak (controller, service, repository) használatára.
+* Kivételkezelés best practices:
+  * Használjunk unchecked kivételeket
+  * Próbáljuk meg a létező kivételeket használni
+  * Csak akkor használjunk egyedi kivételeket, ha másképp is akarjuk kezelni
+  * Lehető legtöbb információt tegyünk a kivételbe
+* Használtuk a data-oriented programming megközelítést, kombináltuk a pattern matching for switch,
+  sealed classes, unnamed variables, record patterns nyelvi elemeket.
+* `hasAvailable` kiszámítása a Value Objectekbe került
 
 Új szótár:
 
