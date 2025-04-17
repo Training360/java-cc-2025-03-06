@@ -4,6 +4,6 @@ public record UnlimitedTokenUsage(int used) implements TokenUsage {
 
     @Override
     public boolean hasAvailable() {
-        return false;
+        return true;
     }
 }

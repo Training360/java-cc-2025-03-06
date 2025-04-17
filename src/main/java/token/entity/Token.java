@@ -22,6 +22,9 @@ public class Token {
     }
 
     public TokenUsage use(int amountToUse) {
+        if (amountToUse <= 0) {
+            throw new IllegalArgumentException("Amount to use must be greater than or equal to zero");
+        }
         return switch (tokenLimit) {
             case UnlimitedTokens _ -> {
                 used += amountToUse;
