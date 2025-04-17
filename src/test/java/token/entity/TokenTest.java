@@ -1,10 +1,9 @@
 package token.entity;
 
 import org.junit.jupiter.api.Test;
-import token.Enrollment;
-import token.LimitedTokenUsage;
-import token.LimitedTokens;
-import token.TokenLimit;
+import token.vo.Enrollment;
+import token.vo.LimitedTokenUsage;
+import token.vo.TokenLimit;
 
 import static org.junit.jupiter.api.Assertions.*;
 

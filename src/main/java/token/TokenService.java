@@ -1,9 +1,9 @@
-package token.service;
+package token;
 
 import lombok.RequiredArgsConstructor;
-import token.Enrollment;
-import token.TokenLimit;
-import token.TokenUsage;
+import token.vo.Enrollment;
+import token.vo.TokenLimit;
+import token.vo.TokenUsage;
 import token.entity.Token;
 import token.repository.TokenRepository;
 

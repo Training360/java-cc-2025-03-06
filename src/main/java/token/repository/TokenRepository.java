@@ -1,7 +1,6 @@
 package token.repository;
 
-import participant.entity.Participant;
-import token.Enrollment;
+import token.vo.Enrollment;
 import token.entity.Token;
 
 import java.util.Map;

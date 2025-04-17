@@ -1,4 +1,4 @@
-package token;
+package token.vo;
 
 public sealed interface TokenLimit permits LimitedTokens, UnlimitedTokens {
 

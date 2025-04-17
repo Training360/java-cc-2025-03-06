@@ -1,7 +1,7 @@
 package token.entity;
 
 import lombok.Getter;
-import token.*;
+import token.vo.*;
 
 @Getter
 public class Token {

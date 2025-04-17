@@ -1,4 +1,4 @@
-package token;
+package token.vo;
 
 public record LimitedTokenUsage(int used, int all, int free) implements TokenUsage {
 
