@@ -26,7 +26,7 @@ public class TrainingService {
     public TrainingDto enroll(long trainingId, Set<Long> participantIds, TokenLimit tokenLimit) {
         Training training = trainingRepository.findById(trainingId);
         training.enroll(participantIds);
-        tokenService.assignTokenLimit(participantIds, trainingId, tokenLimit);
+        tokenService.assignTokenLimit(participantIds, trainingId, tokenLimit, training.getTrainingType());
         return new TrainingDto(training.getId(), training.getName(), training.getTrainingType());
     }
 }

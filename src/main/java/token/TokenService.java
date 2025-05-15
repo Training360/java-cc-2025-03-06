@@ -6,6 +6,7 @@ import token.vo.TokenLimit;
 import token.vo.TokenUsage;
 import token.entity.Token;
 import token.repository.TokenRepository;
+import training.TrainingType;
 
 import java.util.Set;
 
@@ -15,7 +16,7 @@ public class TokenService {
     private final TokenRepository tokenRepository;
 
     public void assignTokenLimit(Set<Long> participantIds, long trainingId,
-                     TokenLimit tokenLimit) {
+                                 TokenLimit tokenLimit, TrainingType trainingType) {
         for (Long participantId : participantIds) {
             Token token = Token.assign(new Enrollment(trainingId, participantId), tokenLimit);
             tokenRepository.save(token);
